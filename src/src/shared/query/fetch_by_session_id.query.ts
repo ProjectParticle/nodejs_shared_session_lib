@@ -1,5 +1,5 @@
 
-export class FetchBySessionIdCommand {
+export class FetchBySessionIdQuery {
 
   constructor(
     readonly sessionId: string,
