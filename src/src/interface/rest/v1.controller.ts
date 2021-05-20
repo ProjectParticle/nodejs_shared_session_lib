@@ -23,7 +23,7 @@ export class V1Controller {
   constructor(
     private readonly commandBus: CommandBus,
     private readonly queryBus: QueryBus,
-  ) {}
+  ) { }
 
   protected readBodyAsString(req: Request): string | undefined {
     return req.readable ? req.read(req.readableLength).toString() : null
@@ -37,7 +37,7 @@ export class V1Controller {
     const sessionExists = await this.queryBus.execute(new ExistsBySessionIdCommand(sessionId));
 
     // not found, 404 please
-    if(sessionExists === false) { throw new NotFoundException(); }
+    if (sessionExists === false) { throw new NotFoundException(); }
   }
 
   @Post('/')
@@ -77,7 +77,7 @@ export class V1Controller {
       sessionObject.sessionId,
       sessionObject.expiry,
       sessionObject.data
-    );    
+    );
   }
 
   @Get('/:sessionId')
@@ -88,7 +88,7 @@ export class V1Controller {
     const sessionObject: SessionObject | undefined = await this.queryBus.execute(new FetchBySessionIdCommand(sessionId));
 
     // not found, 404 please
-    if(sessionObject === undefined) { throw new NotFoundException(); }
+    if (sessionObject === undefined) { throw new NotFoundException(); }
 
     // map to HTTP response
     return new SessionObjectHttpResponse(
