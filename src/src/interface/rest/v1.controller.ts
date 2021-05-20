@@ -6,12 +6,14 @@ import { Controller, Delete, Get, Head, HttpCode, NotFoundException, Param, Pars
 import { CommandBus, QueryBus } from '@nestjs/cqrs';
 import { Request } from 'express';
 
-/* Command/Query */
+/* Command */
 import { CreateNewSessionCommand } from '../../shared/command/create_new.command';
 import { DeleteBySessionIdCommand } from '../../shared/command/delete_by_session_id.command';
-import { ExistsBySessionIdCommand } from '../../shared/command/exists_by_session_id.command';
-import { FetchBySessionIdCommand } from '../../shared/command/fetch_by_session_id.command';
 import { UpdateSessionByIdCommand } from '../../shared/command/update_by_session_id.command';
+
+/* Query */
+import { ExistsBySessionIdQuery } from '../../shared/query/exists_by_session_id.query';
+import { FetchBySessionIdQuery } from '../../shared/query/fetch_by_session_id.query';
 
 /* Models */
 import { SessionObject } from '../../shared/dto/session_object.dto';
@@ -34,7 +36,7 @@ export class V1Controller {
     @Param('sessionId', ParseUUIDPipe) sessionId: string
   ): Promise<void> {
     // check existence
-    const sessionExists = await this.queryBus.execute(new ExistsBySessionIdCommand(sessionId));
+    const sessionExists = await this.queryBus.execute(new ExistsBySessionIdQuery(sessionId));
 
     // not found, 404 please
     if (sessionExists === false) { throw new NotFoundException(); }
@@ -85,7 +87,7 @@ export class V1Controller {
     @Param('sessionId', ParseUUIDPipe) sessionId: string
   ): Promise<SessionObjectHttpResponse> {
     // fetch the session
-    const sessionObject: SessionObject | undefined = await this.queryBus.execute(new FetchBySessionIdCommand(sessionId));
+    const sessionObject: SessionObject | undefined = await this.queryBus.execute(new FetchBySessionIdQuery(sessionId));
 
     // not found, 404 please
     if (sessionObject === undefined) { throw new NotFoundException(); }
