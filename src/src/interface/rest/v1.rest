@@ -1,0 +1,27 @@
+
+@baseUrl = http://localhost:3000/api
+
+# @name createSession
+
+POST {{baseUrl}}/v1 HTTP/1.1
+Content-Type: text/plain
+
+This is the value
+
+###
+
+# @name checkExistence
+
+@sessionId = {{createSession.response.body.$.sessionId}}
+
+HEAD http://localhost:3000/api/v1/
+
+###
+
+# @name updateSession
+
+PUT {{baseUrl}}/v1/81ef3e54-89f9-4ad7-8065-dbae0234e988 HTTP/1.1
+Content-Type: text/plain
+Accept: application/json
+
+Raw string value
