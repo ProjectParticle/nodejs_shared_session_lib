@@ -1,6 +1,6 @@
-# Shared Session Service / Shared
+# Shared Session Library / Shared
 
-Shared library between different components of the Shared Session Service.
+Shared library between different components of the Shared Session Library.
 
 [![NPM version][npm-image]][npm-url]
 [![NPM downloads][downloads-image]][downloads-url]
@@ -10,10 +10,10 @@ Shared library between different components of the Shared Session Service.
 ```sh
 
 # NPM
-npm i @project-particle/shared-session-shared --save
+npm i @project-particle/shared-session-lib-shared --save
 
 # Yarn
-yarn install @project-particle/shared-session-shared
+yarn install @project-particle/shared-session-lib-shared
 
 ```
 
@@ -21,12 +21,12 @@ yarn install @project-particle/shared-session-shared
 
 ```js
 
-const shared = require('@project-particle/shared-session-shared');
+const shared = require('@project-particle/shared-session-lib-shared');
 
 ```
 
 ```ts
-import * as shared from '@project-particle/shared-session-shared';
+import * as shared from '@project-particle/shared-session-lib-shared';
 ```
 
 And you're good to go!
@@ -35,7 +35,7 @@ And you're good to go!
 
 MIT
 
-[npm-image]: https://img.shields.io/npm/v/@project-particle/shared-session-shared.svg?color=orange
-[npm-url]: https://npmjs.org/package/@project-particle/shared-session-shared
-[downloads-image]: https://img.shields.io/npm/dt/@project-particle/shared-session-shared.svg
-[downloads-url]: https://npmjs.org/package/@project-particle/shared-session-shared
+[npm-image]: https://img.shields.io/npm/v/@project-particle/shared-session-lib-shared.svg?color=orange
+[npm-url]: https://npmjs.org/package/@project-particle/shared-session-lib-shared
+[downloads-image]: https://img.shields.io/npm/dt/@project-particle/shared-session-lib-shared.svg
+[downloads-url]: https://npmjs.org/package/@project-particle/shared-session-lib-shared
