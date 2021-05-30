@@ -1,7 +1,7 @@
 {
   "name": "@project-particle/shared-session-lib-shared",
   "version": "1.0.0",
-  "description": "Shared layer of the Shared Session Service",
+  "description": "Shared layer of the Shared Session library",
   "main": "dist/index.js",
   "scripts": {
     "clean": "rimraf dist/",
