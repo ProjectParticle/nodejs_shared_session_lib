@@ -2,7 +2,7 @@
  * Event / Session Updated
  */
 
-import { SessionData } from '../type/session_data';
+import { SessionData } from '../session_data.type';
 
 export class SessionUpdatedEvent {
 
